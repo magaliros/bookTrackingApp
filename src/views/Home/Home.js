@@ -3,6 +3,11 @@ import Shelf from '../../components/Shelf';
 import OpenSearch from '../../components/OpenSearch';
 import { getAll } from '../../BooksAPI';
 
+/*
+* Thanks to Forrest Walker for his walkthrough:
+* https://www.youtube.com/watch?v=bpKI3R0nf7E
+*/
+
 class Home extends React.Component {
 	async componentDidMount(){
 		try {

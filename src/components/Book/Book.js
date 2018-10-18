@@ -6,7 +6,7 @@ class Book extends React.Component {
 		try {
 			const shelf = e.target.value;
 			const book = this.props
-  			const result = await update(book, shelf)
+  			const result = await update(book, shelf);
   			this.props.moveBook(book, shelf, result);
 		} catch (error) {
 			console.log(error)
@@ -23,7 +23,7 @@ class Book extends React.Component {
             	style={{ 
             		width: 128, 
             		height: 193, 
-            		backgroundImage: `url(${this.props.imageLinks.thumbnail})`
+            		backgroundImage: `url(${this.props.imageLinks ? this.props.imageLinks.thumbnail : ""})`
             	}}
             />
             <div className="book-shelf-changer">
@@ -37,7 +37,7 @@ class Book extends React.Component {
             </div>
           </div>
           <div className="book-title">{this.props.title}</div>
-          <div className="book-authors">{this.props.authors[0]}</div>
+          <div className="book-authors">{this.props.authors ? this.props.authors[0] : "No Author"}</div>
         </div>
     );
   }
