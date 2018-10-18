@@ -16,8 +16,17 @@ class Provider extends React.Component {
       			const wantToRead = books.filter(book => book.shelf === "wantToRead");
       			this.setState({books, currentlyReading, read, wantToRead});
 			}, 
-			moveBook: (book, shelf) => {
-				console.log(book,shelf)
+			moveBook: (book, newShelf, allShelfs) => {
+				const newBooks = this.state.books.map(allBooks => {
+					const foundId = allShelfs[newShelf].find(
+						bookId => bookId === allBooks.id);
+				
+					if (foundId) {
+						allBooks.shelf = newShelf;
+					}
+					return allBooks;
+				});
+				this.state.addBooks(newBooks)
 			}
 		};
 	}

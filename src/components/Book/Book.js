@@ -7,7 +7,7 @@ class Book extends React.Component {
 			const shelf = e.target.value;
 			const book = this.props
   			const result = await update(book, shelf)
-  			this.props.moveBook(book, shelf);
+  			this.props.moveBook(book, shelf, result);
 		} catch (error) {
 			console.log(error)
 		}
@@ -27,7 +27,7 @@ class Book extends React.Component {
             	}}
             />
             <div className="book-shelf-changer">
-              <select onChange={this.handleChange}>
+              <select onChange={this.handleChange} value={this.props.shelf}>
                 <option value="move" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>

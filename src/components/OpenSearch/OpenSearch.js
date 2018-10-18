@@ -1,10 +1,10 @@
 import React    from "react";
-
+import { Link } from "react-router-dom";
 class Search extends React.Component {
   render() {
     return (
     	<div className="open-search">
-            <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+            <Link to={"/Search"}>Add a book</Link>
         </div>
     );
   }
